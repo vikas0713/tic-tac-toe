@@ -10,6 +10,7 @@ const Board = () => {
     const [clickedDiv, setClickedDiv] = useState([]);
     const [player1Move, setPlayer1Move] = useState([]);
     const [player2Move, setPlayer2Move] = useState([]);
+    
 
 
     const playerData = { player, setPlayer, clickedDiv, setClickedDiv, player1Move, setPlayer1Move, player2Move, setPlayer2Move }
