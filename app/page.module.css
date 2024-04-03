@@ -228,3 +228,31 @@
     transform: rotate(0deg);
   }
 }
+
+
+.main-board {
+ background-color: rgb(136, 19, 33);
+}
+
+.row1{
+  display: flex;
+  width: 2.0rem
+}
+
+.row2{
+  display: flex;
+  justify-content: space-between;
+  width: 2.0rem
+
+}
+.row3{
+  display: flex;
+  justify-content: space-between;
+  width: 2.0rem
+
+}
+
+.block{
+  width: 32.3%;
+  display: inline-block;
+}
