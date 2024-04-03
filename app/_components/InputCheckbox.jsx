@@ -14,9 +14,13 @@ export default function InputCheckbox({ playerData }) {
     const alreadyWon = async () => {
         let won = false;
         wonCombinations.forEach(async (subArr) => {
-            if (subArr.every((item) => player1Move.includes(item) || player2Move.includes(item))) {
-                console.log("Player WON!!");
+            if (subArr.every((item) => player1Move.includes(item))) {
+                console.log("Player1 WON!!");
                 won = true;
+            } 
+            if (!won && subArr.every((item) => player2Move.includes(item))) {
+                    console.log("Player2 WON!!");
+                    won = true;
             }
         });
         return won;
@@ -33,21 +37,17 @@ export default function InputCheckbox({ playerData }) {
     }
 
     const handleChange = async () => {
-        const currentPlayerMoves = player === 1 ? player2Move : player1Move;
-        if (player === 0) {
-            setPlayer1Move([...player1Move, id])
-        } else {
-            setPlayer2Move([...player2Move, id])
-        }
-        await updateGameStatus();
-        if (! await alreadyWon(currentPlayerMoves)) {
-            if (clickedDiv.includes(id)) {
-                console.log("Already clicked");
+            if (!clickedDiv.includes(id)){
+                if (player === 0) {
+                    setPlayer1Move([...player1Move, id])
+                } else {
+                    setPlayer2Move([...player2Move, id])
+                }
             }
-        } else {
-            console.log("Player won");
-        }
-
+            if ( !await alreadyWon()) {
+                await updateGameStatus();
+            }
+            
     }
 
 
